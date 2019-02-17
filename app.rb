@@ -35,6 +35,7 @@ get '/zaim' do
                                  authorize_url: 'https://auth.zaim.net/users/auth',
                                  access_token_path: '/v2/auth/access')
   at = OAuth::AccessToken.new(consumer, ACCESS_TOKEN, ACCESS_TOKEN_SECRET)
+  puts "ACCESS_TOKEN: #{at.inspect}"
 
   uri = URI('https://api.zaim.net/v2/home/money')
   uri.query = params.to_param
